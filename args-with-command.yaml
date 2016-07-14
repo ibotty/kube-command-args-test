@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: command-args-command-with-args
+spec:
+  template:
+    metadata:
+      name: command-args-command-with-args
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: ibotty/kube-command-args-test:latest
+        command:
+        - /usr/libexec/container/entrypoint.sh
+        name: kube-command-args-test
+        args:
+        - one
+        - two
+        imagePullPolicy: Always

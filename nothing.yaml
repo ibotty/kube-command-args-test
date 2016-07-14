@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: command-args-command-nothing
+spec:
+  template:
+    metadata:
+      name: command-args-command-nothing
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: ibotty/kube-command-args-test:latest
+        name: kube-command-args-test
+        imagePullPolicy: Always
